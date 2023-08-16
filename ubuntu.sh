@@ -39,7 +39,7 @@ docker run --privileged=true \
            -p 3389:3389 \
            -e TZ="Europe/London" \
            -v ${PWD}/CREATEUSERS.TXT:/root/createusers.txt \
-           rattydave/docker-ubuntu-xrdp-mate-custom > /dev/null 2>&1
+           rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
