@@ -1,4 +1,4 @@
-echo "user:pass:N" > CREATEUSERS.TXT | sudo passwd
+echo "ubuntu:ubuntu:Y" > CREATEUSERS.TXT | sudo passwd
 rm -rf ngrok  ngrok.zip  ng.sh > /dev/null 2>&1
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
 chmod +x ng.sh
