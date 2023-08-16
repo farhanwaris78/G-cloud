@@ -1,4 +1,4 @@
-echo -e "$123\n$123\n" | sudo passwd
+echo "user:pass:N" > CREATEUSERS.TXT | sudo passwd
 rm -rf ngrok  ngrok.zip  ng.sh > /dev/null 2>&1
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
 chmod +x ng.sh
@@ -35,7 +35,7 @@ echo "Don't close this tab to keep RDP running"
 echo "Wait to finish bot and next open RDC to connect"
 echo "===================================="
 echo "===================================="
-docker run --rm -p 3388:3389 rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
+docker run --rm -p 3388:3389 rattydave/docker-ubuntu-xrdp-mate-custom:latest -v ${PWD}/CREATEUSERS.TXT:/root/createusers.txt > /dev/null 2>&1
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
