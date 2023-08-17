@@ -1,4 +1,4 @@
-#echo -e "$123\n$123\n" | sudo passwd
+echo -e "$123\n$123\n" | sudo passwd
 rm -rf ngrok  ngrok.zip  ng.sh > /dev/null 2>&1
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
 chmod +x ng.sh
@@ -37,6 +37,16 @@ echo "===================================="
 echo "===================================="
 echo "123456:123456:Y" > CREATEUSERS.TXT
 docker run --rm --privileged=true -p 3388:3389 -v CREATEUSERS.TXT:/root/createusers.txt rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
+# Create a new user named "newuser"
+NEW_USERNAME="ubuntu1"
+NEW_PASSWORD="ubuntu1"
+
+# Create the user with the provided username and password
+useradd -m -p $(openssl passwd -1 $NEW_PASSWORD) $NEW_USERNAME
+
+# Add the user to the "sudo" group to grant administrative privileges
+usermod -aG sudo $NEW_USERNAME
+
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
