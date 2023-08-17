@@ -19,7 +19,7 @@ read -p "choose ngrok region: " CRP
 echo "===================================="
 echo "Install RDP"
 echo "===================================="
-docker pull rattydave/docker-ubuntu-xrdp-mate-custom
+docker pull catyku/ubuntu-xrdp
 clear
 echo "===================================="
 echo "Start RDP"
@@ -35,18 +35,7 @@ echo "Don't close this tab to keep RDP running"
 echo "Wait to finish bot and next open RDC to connect"
 echo "===================================="
 echo "===================================="
-echo "123456:123456:Y" > CREATEUSERS.TXT
-docker run --rm --privileged=true -p 3388:3389 -v CREATEUSERS.TXT:/root/createusers.txt rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
-# Create a new user named "newuser"
-NEW_USERNAME="ubuntu1"
-NEW_PASSWORD="ubuntu1"
-
-# Create the user with the provided username and password
-useradd -m -p $(openssl passwd -1 $NEW_PASSWORD) $NEW_USERNAME
-
-# Add the user to the "sudo" group to grant administrative privileges
-usermod -aG sudo $NEW_USERNAME
-
+docker run --rm -d --name catyku/ubuntu-xrdp:22.04 -p 3388:3389 123 123456 123456 Yes > /dev/null 2>&1
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
