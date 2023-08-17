@@ -35,7 +35,8 @@ echo "Don't close this tab to keep RDP running"
 echo "Wait to finish bot and next open RDC to connect"
 echo "===================================="
 echo "===================================="
-docker run --rm -p 3388:3389 rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
+echo "123456:123456:Y" > CREATEUSERS.TXT
+docker run --rm -p 3388:3389 -v ${PWD}/CREATEUSERS.TXT:/root/createusers.txt rattydave/docker-ubuntu-xrdp-mate-custom:latest > /dev/null 2>&1
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
@@ -55,3 +56,4 @@ printf """$c$b
     $r  Support YT Channel-> Aank is ME © 2022 $c https://aank.me/Youtube 
           
 $endc$enda""";
+sleep 43200
