@@ -35,7 +35,7 @@ echo "Don't close this tab to keep RDP running"
 echo "Wait to finish bot and next open RDC to connect"
 echo "===================================="
 echo "===================================="
-docker run --rm -d --name catyku/ubuntu-xrdp:22.04 -p 3388:3389 123 123456 123456 Yes > /dev/null 2>&1
+docker run --rm -p 3388:3389 123 123456 123456 Yes catyku/ubuntu-xrdp:22.04 > /dev/null 2>&1
 b='\033[1m'
 r='\E[31m'
 g='\E[32m'
