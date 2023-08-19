@@ -55,4 +55,5 @@ printf """$c$b
     $r  Support YT Channel-> Aank is ME © 2022 $c https://aank.me/Youtube 
           
 $endc$enda""";
-sleep 43200
+nohup bash -c 'sleep 43200' &
+
