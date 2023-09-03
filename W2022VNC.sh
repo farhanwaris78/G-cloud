@@ -9,11 +9,10 @@ echo "Installing QEMU (2-3m)..."
 sudo apt install qemu-system-x86 curl -y > /dev/null 2>&1
 clear
 echo Downloading Windows files from aank.me
-rm -rf windows2022 windows2022.img
-curl -L -o windows2022.gz https://ia902207.us.archive.org/19/items/windows2022/windows2022.gz
+rm -rf ggos-0.9.4 ggos-0.9.4.iso
+curl -L -o windows2022.gz https://download2391.mediafire.com/q5b2ansfeusgPjaxam5vAR_8ZUQAnJeZqN9Blpk8crsvLtYVXXAzZdgpksLqpHHYoUYT1BoeADF2cd2AnfopNhhRzJ2mbiEjcmbeLxDbq42AfA9OTxgcCgKJ_s4V0c7Z96177l_FdumUR-dG7CwWwRhZF1HVc8J1BeBE77_OftraOfw/z446hmq6cqzpd58/ggos-0.9.4.iso
 echo "Wait.."
-gunzip windows2022.gz
-mv windows2022 windows2022.img
+mv ggos-0.9.4 ggos-0.9.4.iso
 echo "Windows 7 x86 Lite On Gitpod, GCloud and GColab"
 echo Your VNC IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
@@ -40,5 +39,5 @@ printf """$c$b
     $r  Support YT Channel-> Aank is ME © 2022 $c https://aank.me/Youtube 
           
 $endc$enda""";
-sudo qemu-system-x86_64 -vnc :0 -hda windows2022.img  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
+sudo qemu-system-x86_64 -vnc :0 -hda ggos-0.9.4.iso  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
 sleep 43200
